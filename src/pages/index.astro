@@ -13,7 +13,7 @@ const characters = data_character.results;
 ---
 
 <Layout1 title={title} />
-<Hero title="The Simpsons" bg_image="/img/thesimpsons/bg.jpg" />
+<!-- <Hero title="The Simpsons" bg_image="/img/bg.jpg" /> -->
 
 <section id="characters">
   <input type="text" id="search" placeholder="search.." />
@@ -42,8 +42,15 @@ const characters = data_character.results;
 
 <style>
   body {
-    background-color: #d5e0f7;
+    background-image: url(/img/bg_mobile.jpg);
+    background-color: #1216175e;
+    background-blend-mode: darken;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
+
   .grid {
     flex-wrap: wrap;
     gap: 10px;
@@ -60,15 +67,16 @@ const characters = data_character.results;
     border-radius: 7px;
     width: calc((100% - 10px) / 2);
     max-width: 200px;
-
     transition: var(--transition);
     color: var(--clr-dark);
+    backdrop-filter: blur(7px);
+    background-color: #ffffff2d;
   }
 
   .character-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
-    mask-image: linear-gradient(to bottom, white 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, white 90%, transparent 100%);
   }
 
   .character-card h4 {
@@ -92,14 +100,20 @@ const characters = data_character.results;
 
   @media (hover: hover) {
     .character-card:hover {
-      background-color: #fff;
-      border: solid 1px var(--clr-border);
+      background-color: #ffffff92;
       scale: 1.02;
       cursor: pointer;
     }
   }
 
   @media (min-width: 750px) {
+    body {
+      background-image: url(/img/bg.jpg);
+    }
+
+    .character-card {
+      width: calc((100% - 30px) / 4);
+    }
   }
 </style>
 
